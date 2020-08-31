@@ -14,7 +14,7 @@ do
   echo "Creating folder $2/$i..."
   mkdir $2/$i    
   fi
-    docker run -it -v "$1/$2/$i:/tmp/test_reports/" -v "$4/.gradle/wrapper:/home/alex/elasticsearch/.gradle/wrapper"  elastic/$3 /bin/bash -c "git checkout tags/$2 -b $2 &&\
+    docker run -it -v "$1/$2/$i:/home/alex/tmp/test_reports/" -v "$4/.gradle/wrapper:/home/alex/.gradle/wrapper" -v "$4/.gradle/caches:/home/alex/.gradle/caches"  elastic/$3 /bin/bash -c "git checkout tags/$2 -b $2 &&\
     ./gradlew --stop && ./gradlew :server:test --tests org.elasticsearch.search.aggregations.bucket.missing.* --build-cache &&\
-    cp -r /home/alex/elasticsearch/server/build/reports/tests/test /tmp/test_reports"
+    cp -r /home/alex/elasticsearch/server/build/reports/tests/test /home/alex/tmp/test_reports"
 done
