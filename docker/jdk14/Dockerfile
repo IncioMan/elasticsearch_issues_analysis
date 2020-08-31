@@ -6,4 +6,6 @@ RUN apt-get update && \
 USER alex
 RUN cd && git clone https://github.com/elastic/elasticsearch.git
 WORKDIR /home/alex/elasticsearch
+RUN mkdir /home/alex/tmp
+RUN mkdir /home/alex/tmp/testreports
 RUN mkdir /home/alex/.gradle
