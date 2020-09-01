@@ -8,4 +8,5 @@ RUN cd && git clone https://github.com/elastic/elasticsearch.git
 WORKDIR /home/alex/elasticsearch
 RUN mkdir /home/alex/tmp
 RUN mkdir /home/alex/tmp/testreports
+RUN mkdir /home/alex/elasticsearch/.gradle
 RUN mkdir /home/alex/.gradle
